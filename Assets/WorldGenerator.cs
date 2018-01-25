@@ -9,10 +9,10 @@ public class WorldGenerator : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        var map = new Simulation.HexMap(5);
         var worldTerrain = Instantiate(Prefab);
-        worldMesh = new Mesh();
-        
-
+        worldMesh = map.GetBasicMesh();
+        worldTerrain.GetComponent<MeshFilter>().mesh = worldMesh;
     }
 	
 	// Update is called once per frame
